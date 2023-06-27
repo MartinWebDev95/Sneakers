@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styles from './Navigation.module.css';
+import MenuList from '../MenuList';
 
 function Navigation() {
   const [openMenu, setOpenMenu] = useState(true);
@@ -19,7 +20,7 @@ function Navigation() {
 
       </svg>
 
-      <nav className={styles.navigation} aria-hidden={openMenu}>
+      {/* <nav className={styles.navigation} aria-hidden={openMenu}>
         <button
           type="button"
           className={styles.menuButton}
@@ -35,7 +36,8 @@ function Navigation() {
           <li>About</li>
           <li>Contact</li>
         </ul>
-      </nav>
+      </nav> */}
+      <MenuList openMenu={openMenu} setOpenMenu={setOpenMenu} />
     </div>
   );
 }
