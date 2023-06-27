@@ -7,20 +7,22 @@
 .navigationContainer::after{
   content: '';
   background-color: var(--veryDarkBlue);
-  opacity: .5;
   height: 100vh;
-  width: 20%;
   position: absolute;
   right: 0;
   bottom: 0;
 }
 
 .navigationContainer[aria-hidden=false]::after{
-  display: block;
+  opacity: .5;
+  width: 20%;
+  transition: all .3s ease-in-out;
 }
 
 .navigationContainer[aria-hidden=true]::after{
-  display: none;
+  opacity: 0;
+  width: 0%;
+  transition: all .3s ease-in-out;
 }
 
 .navigationContainer .menuButton{
