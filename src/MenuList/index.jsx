@@ -1,12 +1,12 @@
 import styles from './MenuList.module.css';
 
-function MenuList({ openMenu, setOpenMenu }) {
+function MenuList({ hiddenMenu, setHiddenMenu }) {
   return (
-    <nav className={styles.navigation} aria-hidden={openMenu}>
+    <nav className={styles.navigation} aria-hidden={hiddenMenu}>
       <button
         type="button"
         className={styles.menuButton}
-        onClick={() => setOpenMenu(!openMenu)}
+        onClick={() => setHiddenMenu(!hiddenMenu)}
       >
         <img src="/public/images/icon-close.svg" alt="Close menu" />
       </button>

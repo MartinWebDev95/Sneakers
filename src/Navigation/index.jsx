@@ -3,14 +3,24 @@ import styles from './Navigation.module.css';
 import MenuList from '../MenuList';
 
 function Navigation() {
-  const [openMenu, setOpenMenu] = useState(true);
+  const [hiddenMenu, setHiddenMenu] = useState(true);
+
+  const handleClick = (e) => {
+    if (e.target.nodeName === 'DIV') {
+      setHiddenMenu(true);
+    }
+  };
 
   return (
-    <div className={styles.navigationContainer} aria-hidden={openMenu}>
+    <div
+      className={styles.navigationContainer}
+      aria-hidden={hiddenMenu}
+      onClick={handleClick}
+    >
       <button
         type="button"
         className={styles.menuButton}
-        onClick={() => setOpenMenu(!openMenu)}
+        onClick={() => setHiddenMenu(!hiddenMenu)}
       >
         <img src="/public/images/icon-menu.svg" alt="Menu" />
       </button>
@@ -20,24 +30,7 @@ function Navigation() {
 
       </svg>
 
-      {/* <nav className={styles.navigation} aria-hidden={openMenu}>
-        <button
-          type="button"
-          className={styles.menuButton}
-          onClick={() => setOpenMenu(!openMenu)}
-        >
-          <img src="/public/images/icon-close.svg" alt="Close menu" />
-        </button>
-
-        <ul className={styles.menuList}>
-          <li>Collections</li>
-          <li>Men</li>
-          <li>Women</li>
-          <li>About</li>
-          <li>Contact</li>
-        </ul>
-      </nav> */}
-      <MenuList openMenu={openMenu} setOpenMenu={setOpenMenu} />
+      <MenuList hiddenMenu={hiddenMenu} setHiddenMenu={setHiddenMenu} />
     </div>
   );
 }
