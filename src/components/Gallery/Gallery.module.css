@@ -1,0 +1,83 @@
+.containerImages .containerSlider{
+  position: relative;
+}
+
+.containerSlider .buttonPrev, 
+.containerSlider .buttonNext{
+  position: absolute;
+  display: block;
+  background-color: var(--white);
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  top: 50%;
+  display: grid;
+  place-content: center;
+}
+
+.containerSlider .buttonPrev{
+  left: 4%;
+}
+
+.containerSlider .buttonNext{
+  right: 4%;
+}
+
+.containerSlider .containerImg{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.containerImg img{
+  width: 100%;
+}
+
+.containerImages .containerThumbnails{
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.containerImages .containerThumbnails img{
+  border-radius: 10px;
+  width: 20%;
+  border: 1px solid transparent;
+}
+
+@media screen and (min-width: 468px) {
+  .containerImages{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .containerSlider .buttonPrev, 
+  .containerSlider .buttonNext{
+    display: none;
+  }
+
+  .containerImg img{
+    border-radius: 10px;
+  }
+
+  .containerImages .containerThumbnails{
+    display: flex;
+  }
+
+  .containerImages .containerThumbnails img:hover{
+    cursor: pointer;
+    opacity: .5;
+    transition: all .3s ease-in-out;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .containerImages{
+    width: 50%;
+  }
+}
