@@ -18,7 +18,7 @@ html {
   box-sizing: inherit;
 }
 
-body {
+body, p, h1, h2, h3, h4 {
   margin: 0;
   padding: 0;
   font-family: var(--ff);
@@ -36,5 +36,17 @@ ul{
 
 img, picture{
   display: block;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
