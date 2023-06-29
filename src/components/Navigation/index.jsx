@@ -22,7 +22,7 @@ function Navigation() {
         className={styles.menuButton}
         onClick={() => setHiddenMenu(!hiddenMenu)}
       >
-        <img src="/public/images/icon-menu.svg" alt="Menu" />
+        <img src="/images/icon-menu.svg" alt="Menu" />
       </button>
 
       <svg width="138" height="20" xmlns="http://www.w3.org/2000/svg">

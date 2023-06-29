@@ -8,7 +8,7 @@ function MenuList({ hiddenMenu, setHiddenMenu }) {
         className={styles.menuButton}
         onClick={() => setHiddenMenu(!hiddenMenu)}
       >
-        <img src="/public/images/icon-close.svg" alt="Close menu" />
+        <img src="/images/icon-close.svg" alt="Close menu" />
       </button>
 
       <ul className={styles.menuList}>
