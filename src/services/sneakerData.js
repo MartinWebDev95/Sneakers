@@ -1,6 +1,6 @@
 const sneaker = {
   name: 'Fall Limited Edition Sneakers',
-  description: 'These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer saler, they&apos;ll withstand everything the weather can offer.',
+  description: 'These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer saler, they\'ll withstand everything the weather can offer.',
   originalPrice: 250,
   discount: 50,
   gallery: [
