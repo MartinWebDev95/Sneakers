@@ -16,5 +16,6 @@
     flex-direction: row;
     gap: 4rem;
     align-items: center;
+    margin: 2rem auto 2rem auto;
   }
 }
