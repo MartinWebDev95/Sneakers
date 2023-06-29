@@ -3,6 +3,7 @@ import Header from './components/Header';
 import styles from './App.module.css';
 import sneaker from './services/sneakerData';
 import Gallery from './components/Gallery';
+import Information from './components/Information';
 
 function App() {
   const [data, setData] = useState({});
@@ -18,9 +19,12 @@ function App() {
       <main className={styles.container}>
         <Gallery gallery={data.gallery} thumbnails={data.thumbnails} />
 
-        <div className={styles.containerInfo}>
-          <h1>Sneaker Information</h1>
-        </div>
+        <Information
+          name={data.name}
+          description={data.description}
+          discount={data.discount}
+          originalPrice={data.originalPrice}
+        />
       </main>
     </>
   );
