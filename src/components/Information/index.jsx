@@ -25,7 +25,7 @@ function Information({
       <div className={styles.containerPrice}>
         <p>
           <span className={styles.finalPrice}>
-            {`$${(originalPrice * discount) / 100}`}
+            {`$${((originalPrice * discount) / 100)?.toFixed(2)}`}
           </span>
 
           <span className={styles.discount}>
@@ -34,7 +34,7 @@ function Information({
         </p>
 
         <p className={styles.originalPrice}>
-          {`$${originalPrice}`}
+          {`$${originalPrice?.toFixed(2)}`}
         </p>
       </div>
 
@@ -56,6 +56,7 @@ function Information({
             name="quantity"
             id="quantity"
             value={quantity}
+            readOnly
           />
 
           <button
