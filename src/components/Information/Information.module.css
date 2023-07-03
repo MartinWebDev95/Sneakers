@@ -71,6 +71,7 @@
   font-weight: bold;
   font-family: var(--ff);
   font-size: 1em;
+  height: 50px;
 }
 
 .containerQuantity .containerInput button{
@@ -81,14 +82,15 @@
   cursor: pointer;
   display: grid;
   place-content: center;
+  transition: all .3s ease-in-out;
 }
 
 .containerQuantity .containerInput .buttonMinus{
-  border-radius: 5px 0px 0px 5px;
+  border-radius: 10px 0px 0px 10px;
 }
 
 .containerQuantity .containerInput .buttonPlus{
-  border-radius: 0px 5px 5px 0px;
+  border-radius: 0px 10px 10px 0px;
 }
 
 .containerQuantity .addToCart{
@@ -97,7 +99,7 @@
   justify-content: center;
   gap: 1rem;
   padding: 1rem;
-  border-radius: 5px;
+  border-radius: 10px;
   border: none;
   background-color: var(--orange);
   color: var(--white);
@@ -107,6 +109,7 @@
   -webkit-box-shadow: 0px 24px 53px -14px var(--orange);
   -moz-box-shadow: 0px 24px 53px -14px var(--orange);
   box-shadow: 0px 24px 53px -14px var(--orange);
+  transition: all .3s ease-in-out;
 }
 
 @media screen and (min-width: 468px) {
@@ -142,6 +145,5 @@
 
   .containerQuantity .containerInput button:hover svg, .containerQuantity .addToCart:hover{
     opacity: .5;
-    transition: all .3s ease-in-out;
   }
 }
