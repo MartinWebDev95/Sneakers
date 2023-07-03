@@ -24,6 +24,7 @@ function App() {
           description={data.description}
           discount={data.discount}
           originalPrice={data.originalPrice}
+          imageThumbnails={data.thumbnails?.[0]}
         />
       </main>
     </>
