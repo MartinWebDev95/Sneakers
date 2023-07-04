@@ -1,4 +1,5 @@
 import useCartContext from '../../hooks/useCartContext';
+import Product from '../Product';
 import styles from './Cart.module.css';
 
 function Cart() {
@@ -14,8 +15,8 @@ function Cart() {
         ) : (
           <div className={styles.containerProduct}>
             <ul>
-              {cart.map((item) => (
-                <li>{item.name}</li>
+              {cart.map((product) => (
+                <Product key={product.id} product={product} />
               ))}
             </ul>
             <button type="button" className={styles.checkout}>
