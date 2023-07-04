@@ -1,0 +1,40 @@
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.container .productContainer{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--darkGrayishBlue);
+}
+
+.productContainer .productImage{
+  width: 70px;
+  height: 70px;
+  border-radius: 5px;
+}
+
+.productContainer .productName{
+  margin-bottom: .5rem;
+}
+
+.productContainer .productQuantity{
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+}
+
+.productQuantity .productTotal{
+  color: var(--black);
+  font-weight: bold;
+}
+
+.container .deleteProduct{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
