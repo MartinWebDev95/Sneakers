@@ -22,6 +22,7 @@ function Information({
     setCart([
       ...cart,
       {
+        id: crypto.randomUUID(),
         name,
         price: (originalPrice * discount) / 100,
         quantity,
