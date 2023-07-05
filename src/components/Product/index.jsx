@@ -5,7 +5,11 @@ function Product({ product }) {
   const { cart, setCart } = useCartContext();
 
   const handleDeleteProduct = () => {
+    // Delete the selected product from the cart
     setCart(cart.filter((item) => item.id !== product.id));
+
+    // Delete the selected product from the local storage
+    localStorage.setItem('cart', JSON.stringify(cart.filter((item) => item.id !== product.id)));
   };
 
   return (

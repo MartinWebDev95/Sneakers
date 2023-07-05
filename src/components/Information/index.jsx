@@ -19,6 +19,7 @@ function Information({
   };
 
   const handleAddProduct = () => {
+    // Add the product to the cart
     setCart([
       ...cart,
       {
@@ -30,6 +31,21 @@ function Information({
         imageThumbnails,
       },
     ]);
+
+    // Add the product to the local storage
+    localStorage.setItem('cart', JSON.stringify(
+      [
+        ...cart,
+        {
+          id: crypto.randomUUID(),
+          name,
+          price: (originalPrice * discount) / 100,
+          quantity,
+          total: ((originalPrice * discount) / 100) * quantity,
+          imageThumbnails,
+        },
+      ],
+    ));
   };
 
   return (
