@@ -1,5 +1,6 @@
 .containerImages .containerSlider{
   position: relative;
+  overflow: hidden;
 }
 
 .containerSlider .buttonPrev, 
@@ -29,7 +30,6 @@
   width: 100%;
   display: flex;
   align-items: center;
-  overflow: hidden;
 }
 
 .containerImg img{
@@ -43,10 +43,25 @@
   margin-top: 2rem;
 }
 
-.containerImages .containerThumbnails img{
+.containerThumbnails button{
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  border: 2px solid transparent;
   border-radius: 10px;
-  width: 20%;
-  border: 1px solid transparent;
+}
+
+.containerThumbnails button[data-selected='true']{
+  border: 2px solid var(--orange);
+}
+
+.containerThumbnails button img{
+  border-radius: 10px;
+  width: 100%;
+}
+
+.containerThumbnails button[data-selected='true'] img{
+  opacity: .5;
 }
 
 @media screen and (min-width: 468px) {
@@ -67,9 +82,10 @@
 
   .containerImages .containerThumbnails{
     display: flex;
+    gap: .5rem;
   }
 
-  .containerImages .containerThumbnails img:hover{
+  .containerThumbnails button img:hover{
     cursor: pointer;
     opacity: .5;
     transition: all .3s ease-in-out;
