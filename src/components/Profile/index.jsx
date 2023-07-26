@@ -29,7 +29,7 @@ function Profile() {
           </button>
         </div>
 
-        <img src="/public/images/image-avatar.png" alt="User" className={styles.profileImage} />
+        <img src="/images/image-avatar.png" alt="User" className={styles.profileImage} />
       </div>
 
       <Cart />
