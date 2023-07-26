@@ -5,22 +5,28 @@ import MenuList from '../MenuList';
 function Navigation() {
   const [hiddenMenu, setHiddenMenu] = useState(true);
 
-  const handleClick = (e) => {
+  const handleCloseMenu = (e) => {
     if (e.target.nodeName === 'DIV') {
       setHiddenMenu(true);
+      document.body.style.overflow = 'auto';
     }
+  };
+
+  const handleOpenMenu = () => {
+    setHiddenMenu(!hiddenMenu);
+    document.body.style.overflow = 'hidden';
   };
 
   return (
     <div
       className={styles.navigationContainer}
       aria-hidden={hiddenMenu}
-      onClick={handleClick}
+      onClick={handleCloseMenu}
     >
       <button
         type="button"
         className={styles.menuButton}
-        onClick={() => setHiddenMenu(!hiddenMenu)}
+        onClick={handleOpenMenu}
       >
         <img src="/images/icon-menu.svg" alt="Menu" />
       </button>
