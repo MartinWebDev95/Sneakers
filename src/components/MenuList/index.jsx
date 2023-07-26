@@ -1,12 +1,17 @@
 import styles from './MenuList.module.css';
 
 function MenuList({ hiddenMenu, setHiddenMenu }) {
+  const handleCloseMenu = () => {
+    setHiddenMenu(!hiddenMenu);
+    document.body.style.overflow = 'auto';
+  };
+
   return (
     <nav className={styles.navigation} aria-hidden={hiddenMenu}>
       <button
         type="button"
         className={styles.menuButton}
-        onClick={() => setHiddenMenu(!hiddenMenu)}
+        onClick={handleCloseMenu}
       >
         <img src="/images/icon-close.svg" alt="Close menu" />
       </button>
