@@ -1,0 +1,139 @@
+.lightbox[aria-hidden='true'],
+.lightbox[aria-hidden='false']{
+  display: none;
+}
+
+@media screen and (min-width: 800px) {
+  .lightbox{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: grid;
+    place-items: center;
+    z-index: 30;
+  }
+  
+  .lightbox[aria-hidden='true']{
+    display: none;
+  }
+  
+  .lightbox[aria-hidden='false']{
+    display: grid;
+  }
+  
+  .lightbox .containerImages{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    gap: 1.5rem;
+  }
+  
+  .containerImages .closeButton{
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    align-self: self-end;
+  }
+  
+  .containerImages .closeButton svg:hover path {
+    fill: var(--orange);
+    transition: all .2s ease-in-out;
+  }
+  
+  .containerImages .containerSlider{
+    position: relative;
+  }
+  
+  .containerSlider .gallery{
+    overflow: hidden;
+  }
+  
+  .containerSlider .buttonPrev, 
+  .containerSlider .buttonNext{
+    position: absolute;
+    display: block;
+    background-color: var(--white);
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    top: 50%;
+    display: grid;
+    place-content: center;
+    z-index: 2;
+  }
+  
+  .containerSlider .buttonPrev{
+    left: -4%;
+  }
+  
+  .containerSlider .buttonNext{
+    right: -4%;
+  }
+  
+  .containerSlider .containerImg{
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+  
+  .containerImg img{
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  .containerImages .containerThumbnails{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+  }
+  
+  .containerThumbnails button{
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    width: 18%;
+    position: relative;
+  }
+
+  .containerThumbnails button::after{
+    display: block;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: var(--white);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    border-radius: 10px;
+  }
+
+  .containerThumbnails button:hover::after{
+    opacity: 0.5;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+  }
+  
+  .containerThumbnails button[data-selected='true']{
+    border: 2px solid var(--orange);
+  }
+  
+  .containerThumbnails button img{
+    border-radius: 10px;
+    width: 100%;
+  }
+  
+  .containerThumbnails button[data-selected='true']::after{
+    opacity: .5;
+  }
+}
