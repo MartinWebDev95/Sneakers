@@ -16,6 +16,7 @@
   top: 50%;
   display: grid;
   place-content: center;
+  z-index: 2;
 }
 
 .containerSlider .buttonPrev{
@@ -32,7 +33,16 @@
   align-items: center;
 }
 
-.containerImg img{
+.containerImg button{
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  border-radius: 10px;
+  display: contents;
+}
+
+.containerImg button img{
   width: 100%;
 }
 
@@ -95,5 +105,9 @@
 @media screen and (min-width: 800px) {
   .containerImages{
     width: 50%;
+  }
+
+  .containerImg button{
+    cursor: zoom-in;
   }
 }
