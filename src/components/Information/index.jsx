@@ -19,22 +19,29 @@ function Information({
   };
 
   const handleAddProduct = () => {
-    // Add the product to the cart
-    setCart([
-      ...cart,
-      {
-        id: crypto.randomUUID(),
-        name,
-        price: (originalPrice * discount) / 100,
-        quantity,
-        total: ((originalPrice * discount) / 100) * quantity,
-        imageThumbnails,
-      },
-    ]);
+    const existInCart = cart.some((product) => product.name === name);
 
-    // Add the product to the local storage
-    localStorage.setItem('cart', JSON.stringify(
-      [
+    if (existInCart) {
+      // If the product already exist in the cart, update the quantity with the new value
+      const newState = cart.map((product) => {
+        if (product.name === name) {
+          return {
+            ...product,
+            quantity,
+            total: ((originalPrice * discount) / 100) * quantity,
+          };
+        }
+
+        return product;
+      });
+
+      setCart(newState);
+
+      // Update the product in the local storage
+      localStorage.setItem('cart', JSON.stringify(newState));
+    } else {
+      // Add the product to the cart
+      setCart([
         ...cart,
         {
           id: crypto.randomUUID(),
@@ -44,8 +51,23 @@ function Information({
           total: ((originalPrice * discount) / 100) * quantity,
           imageThumbnails,
         },
-      ],
-    ));
+      ]);
+
+      // Add the product to the local storage
+      localStorage.setItem('cart', JSON.stringify(
+        [
+          ...cart,
+          {
+            id: crypto.randomUUID(),
+            name,
+            price: (originalPrice * discount) / 100,
+            quantity,
+            total: ((originalPrice * discount) / 100) * quantity,
+            imageThumbnails,
+          },
+        ],
+      ));
+    }
   };
 
   return (
