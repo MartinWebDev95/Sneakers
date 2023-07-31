@@ -1,94 +1,30 @@
-import { useState } from 'react';
+import useProduct from '../../hooks/useProduct';
 import styles from './Information.module.css';
-import useCartContext from '../../hooks/useCartContext';
 
-function Information({
-  name, description, discount, originalPrice, imageThumbnails,
-}) {
-  const { cart, setCart } = useCartContext();
-  const [quantity, setQuantity] = useState(1);
-
-  const handleIncrement = () => {
-    setQuantity(quantity + 1);
-  };
-
-  const handleDecrement = () => {
-    if (quantity === 1) return;
-
-    setQuantity(quantity - 1);
-  };
-
-  const handleAddProduct = () => {
-    const existInCart = cart.some((product) => product.name === name);
-
-    if (existInCart) {
-      // If the product already exist in the cart, update the quantity with the new value
-      const newState = cart.map((product) => {
-        if (product.name === name) {
-          return {
-            ...product,
-            quantity,
-            total: ((originalPrice * discount) / 100) * quantity,
-          };
-        }
-
-        return product;
-      });
-
-      setCart(newState);
-
-      // Update the product in the local storage
-      localStorage.setItem('cart', JSON.stringify(newState));
-    } else {
-      // Add the product to the cart
-      setCart([
-        ...cart,
-        {
-          id: crypto.randomUUID(),
-          name,
-          price: (originalPrice * discount) / 100,
-          quantity,
-          total: ((originalPrice * discount) / 100) * quantity,
-          imageThumbnails,
-        },
-      ]);
-
-      // Add the product to the local storage
-      localStorage.setItem('cart', JSON.stringify(
-        [
-          ...cart,
-          {
-            id: crypto.randomUUID(),
-            name,
-            price: (originalPrice * discount) / 100,
-            quantity,
-            total: ((originalPrice * discount) / 100) * quantity,
-            imageThumbnails,
-          },
-        ],
-      ));
-    }
-  };
+function Information({ productData }) {
+  const {
+    quantity, handleAddProduct, handleDecrement, handleIncrement,
+  } = useProduct({ productData });
 
   return (
     <div className={styles.containerInfo}>
       <h1 className={styles.company}>Sneaker Company</h1>
-      <h2 className={styles.sneakerName}>{name}</h2>
-      <p className={styles.sneakerDescription}>{description}</p>
+      <h2 className={styles.sneakerName}>{productData.name}</h2>
+      <p className={styles.sneakerDescription}>{productData.description}</p>
 
       <div className={styles.containerPrice}>
         <p>
           <span className={styles.finalPrice}>
-            {`$${((originalPrice * discount) / 100)?.toFixed(2)}`}
+            {`$${((productData.originalPrice * productData.discount) / 100)?.toFixed(2)}`}
           </span>
 
           <span className={styles.discount}>
-            {`${discount}%`}
+            {`${productData.discount}%`}
           </span>
         </p>
 
         <p className={styles.originalPrice}>
-          {`$${originalPrice?.toFixed(2)}`}
+          {`$${productData.originalPrice?.toFixed(2)}`}
         </p>
       </div>
 
