@@ -16,8 +16,8 @@ function Product({ product }) {
     <li className={styles.container}>
       <div className={styles.productContainer}>
         <img
-          src={product.imageThumbnails.sneakerThumbnail}
-          alt={product.imageThumbnails.altText}
+          src={product.imageThumbnail.sneakerThumbnail}
+          alt={product.imageThumbnail.altText}
           className={styles.productImage}
         />
 
