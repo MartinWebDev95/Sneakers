@@ -19,13 +19,7 @@ function App() {
       <main className={styles.container}>
         <Gallery gallery={data.gallery} thumbnails={data.thumbnails} />
 
-        <Information
-          name={data.name}
-          description={data.description}
-          discount={data.discount}
-          originalPrice={data.originalPrice}
-          imageThumbnails={data.thumbnails?.[0]}
-        />
+        <Information productData={data} />
       </main>
     </>
   );
